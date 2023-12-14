@@ -1,0 +1,63 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,900;1,9..40,900&display=swap");
+
+/* Primary gradient hex probable: #13b3ef */
+
+.font-pacifico {
+  font-family: "Pacifico", cursive;
+}
+
+.font-dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+
+.text-primary-color {
+  color: #00d2e8; /* Replace with your custom color code */
+}
+
+.bg-header {
+  display: inline-block;
+  margin: 0;
+  line-height: 1em;
+  /* background: linear-gradient(to right, #000 50%, #fff 50%); */
+  background: black;
+}
+
+.title-stroke {
+  color: white;
+  font-size: 35px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+/* .text-gradient-primary {
+  color: linear-gradient(180deg, #2694f7, #00d2e8);
+} */
+
+.text-gradient-primary {
+  background-image: linear-gradient(180deg, #2694f7, #00d2e8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(180deg, #2694f7, #00d2e8);
+}
+
+.btn-bg {
+  /* background-color: #dbf26e;
+  background-image: linear-gradient(
+    319deg,
+    #dbf26e 0%,
+    #61fa74 37%,
+    #1cfdd6 100%
+  ); */
+  background-color: #1b8b00;
+  background-image: linear-gradient(314deg, #1b8b00 0%, #a2d240 74%);
+}
