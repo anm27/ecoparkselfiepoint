@@ -15,6 +15,17 @@
   font-family: "DM Sans", sans-serif;
 }
 
+.bg-black-gradient {
+  background-color: #130f40;
+  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+}
+
+.text-gradient-black {
+  background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .text-primary-color {
   color: #00d2e8; /* Replace with your custom color code */
 }
