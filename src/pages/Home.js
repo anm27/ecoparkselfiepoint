@@ -165,6 +165,41 @@ const CustomAlert3 = ({ onClose }) => (
 function Home() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fbProfileLink, setFbProfileLink] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
+  const [isValidMobile, setValidMobile] = useState(true);
+
+  const validateMobileNumber = (mobileNumber) => {
+    const mobileNumberRegex = /^[6-9]\d{0,9}$/;
+    return mobileNumberRegex.test(mobileNumber);
+  };
+
+  const handleMobileNumberChange = (event) => {
+    const inputMobileNo = event.target.value;
+
+    // Ensure only digits are entered
+    if (!/^\d*$/.test(inputMobileNo)) {
+      return;
+    }
+
+    // Limit the input to 10 characters
+    const truncatedMobileNo = inputMobileNo.slice(0, 10);
+
+    // Validate the mobile number
+    const isValid = validateMobileNumber(truncatedMobileNo);
+
+    // Ensure that the first digit is in the range [6, 9]
+    if (
+      truncatedMobileNo.length > 0 &&
+      (truncatedMobileNo[0] < "6" || truncatedMobileNo[0] > "9")
+    ) {
+      setValidMobile(false);
+    } else {
+      setValidMobile(isValid);
+    }
+
+    setMobileNo(truncatedMobileNo);
+  };
+
   const [instagramProfileLink, setInstagramProfileLink] = useState("");
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
@@ -186,6 +221,9 @@ function Home() {
       errors.selectedFile = "*Please upload a reel or photo";
     }
     if (!fbProfileLink) {
+      errors.mobileNo = "*Mobile number is required";
+    }
+    if (!fbProfileLink) {
       errors.fbProfileLink = "*Facebook profile link is required";
     }
     if (!agreeTerms) {
@@ -201,6 +239,7 @@ function Home() {
         formData.append("file", selectedFile); // Assuming you have a 'file' key on the server
 
         // Append other form data to the FormData object
+        formData.append("mobileNo", mobileNo);
         formData.append("fbProfileLink", fbProfileLink);
         formData.append("instagramProfileLink", instagramProfileLink);
 
@@ -222,6 +261,7 @@ function Home() {
           // Reset form fields
           setSelectedFile(null);
           setFbProfileLink("");
+          setMobileNo("");
           setInstagramProfileLink("");
           setAgreeTerms(false);
         } else {
@@ -272,7 +312,7 @@ function Home() {
       {showCustomAlert3 && <CustomAlert3 onClose={handleCloseCustomAlert3} />}
 
       <div className="bg-black pt-2 h-screen">
-        <div className="grid justify-center gap-5 ">
+        <div className="grid justify-center gap-5 bg-black">
           <h2 className="text-center text-white lg:text-5xl text-xl font-pacifico">
             ECO PARK
           </h2>
@@ -305,6 +345,33 @@ function Home() {
           {selectedFile && (
             <p className="text-center text-white mt-3">
               Selected file: {selectedFile.name}
+            </p>
+          )}
+
+          <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
+            <h2 className="px-2 pl-3 border-r-2 text-white text-lg font-semibold">
+              +91
+            </h2>
+            <input
+              className={`bg-gradient-primary p-3 outline-0 text-white placeholder:text-white w-full rounded-r-sm m-auto ${
+                isValidMobile ? "" : "border-red-500"
+              }`}
+              type="text"
+              placeholder="Enter your mobile number"
+              value={mobileNo}
+              onChange={handleMobileNumberChange}
+            />
+          </div>
+
+          {validationErrors.mobileNo && (
+            <p className="-mt-5 text-red-500 text-center">
+              {validationErrors.mobileNo}
+            </p>
+          )}
+
+          {!isValidMobile && (
+            <p className="text-red-500 text-sm mt-1 ml-2 text-center">
+              Invalid mobile number. First digit must be 6, 7, 8, or 9.
             </p>
           )}
 
@@ -401,7 +468,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex justify-center">
+          <div className="flex justify-center bg-black pb-20">
             <button
               onClick={handleSubmit}
               className="btn-bg text-center px-3 py-1 text-xl text-white font-bold uppercase rounded"
@@ -410,13 +477,13 @@ function Home() {
             </button>
           </div>
         </div>
-        <div
-          className={`flex flex-row items-center absolute justify-center w-full bottom-0 py-2 bg-black`}
-        >
-          <h2 className={`text-sm text-white`}>Powered by : </h2>
+      </div>
+      <div
+        className={`flex flex-row items-center fixed justify-center w-full bottom-0 py-2 bg-black`}
+      >
+        <h2 className={`text-sm text-white`}>Powered by : </h2>
 
-          <img src={hidcoLogo} className="w-20 ml-2" alt="HIDCO" />
-        </div>
+        <img src={hidcoLogo} className="w-20 ml-2" alt="HIDCO" />
       </div>
     </>
   );
