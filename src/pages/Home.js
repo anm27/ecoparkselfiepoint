@@ -302,7 +302,7 @@ function Home() {
     <>
       {showCustomAlert && (
         <CustomAlert
-          message="Thank you! If your reel/photo gets selected, one of our officers will send you free tickets on Facebook. Have a good life!"
+          message="Expressing our gratitude! 🌟 If your captivating reel or stunning photo gets featured, you'll be rewarded with 5 complimentary tickets to Eco Park! 🎉 Embrace the good life and keep sharing those amazing moments!"
           onClose={handleCloseCustomAlert}
         />
       )}
