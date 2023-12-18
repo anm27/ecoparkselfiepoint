@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { TiSocialInstagram } from "react-icons/ti";
 import hidcoLogo from "../images/hidco-logo.png";
 import { IoCloseSharp } from "react-icons/io5";
+import tutorial from "../video/fb_get_profile_link.mp4";
 
 const CustomAlert = ({ message, onClose }) => (
   <div className="fixed inset-0 flex items-center justify-center">
@@ -101,9 +102,9 @@ const CustomAlert2 = ({ onClose }) => (
       </p>
 
       <h2 className="text-white text-xl my-2 font-semibold">
-        7. Modifications
+        7. Capture Guidelines
       </h2>
-      <p className="text-white text-base mb-2">
+      <p className="text-white text-base mb-2 pb-3">
         Video / still must be taken within Eco Park and may include your self
         and other visitors of ECO PARK. Admin (HIDCO) of concerned account of
         Facebook, Instagram, any other social media reserves exclusive right for
@@ -120,9 +121,10 @@ const CustomAlert3 = ({ onClose }) => (
         <IoCloseSharp size={33} className="bg-black rounded-full p-1" />
       </button>
       {/* <p className="text-white text-xl">{message}</p> */}
-      <h2 className="text-white text-2xl font-bold font-dm-sans text-gradient-black">
+      <h2 className="text-white text-2xl font-extrabold font-dm-sans text-gradient-black">
         Steps to share your facebook profile url
       </h2>
+      <h2 className="text-gradient-black text-xl my-2 font-bold ">OPTION: I</h2>
       <h2 className="text-gradient-black text-xl my-2 font-semibold">
         1. Log In to Facebook:
       </h2>
@@ -168,6 +170,32 @@ const CustomAlert3 = ({ onClose }) => (
         your facebook profile link input, a Facebook post, message, email, or
         any other platform where you want to share it.
       </p>
+
+      <h2 className="text-gradient-black text-xl my-2 font-bold ">
+        OPTION: II
+      </h2>
+      <React.Fragment>
+        <ul className="text-gradient-black text-xl my-2 font-semibold grid gap-2">
+          <li className="text-white">• Open Chrome</li>
+          <li className="text-white">
+            • Click on the menu button at the top right
+          </li>
+          <li className="text-white">
+            • Click on Views your profile at top left, below menu
+          </li>
+          <li className="text-white">
+            • Now click on three dots at top right corner
+          </li>
+          <li className="text-white">• Click on share</li>
+          <li className="text-white">
+            • Now you can share your fb profile! Just click on copy link
+          </li>
+          <li className="text-white">
+            • Go back to EcoPark page & paste the link
+          </li>
+          <li className="text-white pb-3">• Done!</li>
+        </ul>
+      </React.Fragment>
     </div>
   </div>
 );
@@ -177,6 +205,16 @@ function Home() {
   const [fbProfileLink, setFbProfileLink] = useState("");
   const [mobileNo, setMobileNo] = useState("");
   const [isValidMobile, setValidMobile] = useState(true);
+
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+  };
 
   const validateMobileNumber = (mobileNumber) => {
     const mobileNumberRegex = /^[6-9]\d{0,9}$/;
@@ -308,6 +346,16 @@ function Home() {
     setShowCustomAlert3(false);
   };
 
+  useEffect(() => {
+    // Update body overflow when the component mounts or is updated
+    document.body.style.overflow = isPopupOpen ? "hidden" : "auto";
+
+    // Cleanup when the component is unmounted
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isPopupOpen]);
+
   return (
     <>
       {showCustomAlert && (
@@ -320,6 +368,29 @@ function Home() {
       {showCustomAlert2 && <CustomAlert2 onClose={handleCloseCustomAlert2} />}
 
       {showCustomAlert3 && <CustomAlert3 onClose={handleCloseCustomAlert3} />}
+
+      {/* The overlay and popup */}
+      {isPopupOpen && (
+        <div className="overlay ">
+          <div className="btn-bg py-3">
+            <span
+              className="close-btn text-4xl cursor-pointer ml-5 text-black"
+              onClick={closePopup}
+            >
+              &times;
+            </span>
+            <video
+              className="my-10 lg:my-10 mb-7 mx-auto lg:w-64 w-80"
+              // height="100"
+              controls
+              autoPlay
+            >
+              <source src={tutorial} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
 
       <div className="bg-black pt-2 h-screen">
         <div className="grid justify-center gap-5 bg-black">
@@ -408,13 +479,20 @@ function Home() {
             </p>
           )}
 
-          <div>
+          <div className="grid justify-center items-center gap-2 mb-4">
             <h2
-              className="text-white text-sm text-center cursor-pointer mb-4 underline hover:text-cyan-700"
+              className="text-white text-sm text-center cursor-pointer underline hover:text-cyan-700"
               onClick={() => setShowCustomAlert3(true)}
             >
               Steps to share your facebook profile link/url
             </h2>
+            <h2 className="text-white text-center">OR</h2>
+            <button
+              className="text-white m-auto w-1/2 bg-green-500 px-2 py-1 rounded-md"
+              onClick={openPopup}
+            >
+              Watch Tutorial
+            </button>
           </div>
 
           <p className="text-white text-center">Optional:</p>
