@@ -176,7 +176,7 @@ const CustomAlert3 = ({ onClose }) => (
       </h2>
       <React.Fragment>
         <ul className="text-gradient-black text-xl my-2 font-semibold grid gap-2">
-          <li className="text-white">• Open Chrome</li>
+          <li className="text-white">• Open Chrome an login to facebook.com</li>
           <li className="text-white">
             • Click on the menu button at the top right
           </li>
