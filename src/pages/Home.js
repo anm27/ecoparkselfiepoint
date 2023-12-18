@@ -117,7 +117,7 @@ const CustomAlert2 = ({ onClose }) => (
 const CustomAlert3 = ({ onClose }) => (
   <div className="fixed inset-0 flex items-center justify-center pb-10">
     <div className="btn-bg p-6 rounded-lg mx-2 lg:w-1/3 max-h-screen overflow-y-auto">
-      <button className="text-white flex ml-auto mt-3 mb-2" onClick={onClose}>
+      <button className="text-white flex ml-auto mt-6 mb-2" onClick={onClose}>
         <IoCloseSharp size={33} className="bg-black rounded-full p-1" />
       </button>
       {/* <p className="text-white text-xl">{message}</p> */}
