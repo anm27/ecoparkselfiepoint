@@ -62,13 +62,6 @@
 }
 
 .btn-bg {
-  /* background-color: #dbf26e;
-  background-image: linear-gradient(
-    319deg,
-    #dbf26e 0%,
-    #61fa74 37%,
-    #1cfdd6 100%
-  ); */
   background-color: #1b8b00;
   background-image: linear-gradient(314deg, #1b8b00 0%, #a2d240 74%);
 }

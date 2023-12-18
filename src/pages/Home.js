@@ -52,8 +52,8 @@ const CustomAlert2 = ({ onClose }) => (
       </h2>
       <p className="text-white text-base mb-2">
         Eco Park may collect and store personal information, including but not
-        limited to, your Facebook and Instagram links. This information will be
-        used solely for the purpose of tagging and promoting your content on
+        limited to, your Facebook and Instagram links. The purpose of use of
+        these links / number will include tagging and promoting your content on
         social media.
       </p>
 
@@ -98,6 +98,16 @@ const CustomAlert2 = ({ onClose }) => (
         Eco Park reserves the right to modify, suspend, or terminate the
         selfie/reel upload feature or these terms at any time without prior
         notice.
+      </p>
+
+      <h2 className="text-white text-xl my-2 font-semibold">
+        7. Modifications
+      </h2>
+      <p className="text-white text-base mb-2">
+        Video / still must be taken within Eco Park and may include your self
+        and other visitors of ECO PARK. Admin (HIDCO) of concerned account of
+        Facebook, Instagram, any other social media reserves exclusive right for
+        selection of video, still that will be uploaded in it's page.
       </p>
     </div>
   </div>
@@ -320,7 +330,7 @@ function Home() {
             Get featured on Eco Park Facebook and win free tickets just by
             uploading your reels or pics of Eco Park.
           </h1>
-          <div className="grid justify-center">
+          <div className="flex m-auto justify-center">
             <label
               htmlFor="fileInput"
               className="w-full flex items-center cursor-pointer bg-gradient-primary font-bold font-dm-sans rounded text-white pr-2"
@@ -328,13 +338,14 @@ function Home() {
               <div className="bg-cyan-500 py-4 pl-4 rounded-l border-r-2 mr-2">
                 <FaCloudUploadAlt className="mr-4" size={32} />
               </div>
-              Upload reels or photos
+              Upload reels or photos{" "}
               <input
                 id="fileInput"
                 className="hidden"
                 type="file"
                 onChange={handleFileChange}
               />
+              <span className="text-red-700 text-xl ml-1">*</span>
             </label>
           </div>
           {validationErrors.selectedFile && (
@@ -361,6 +372,7 @@ function Home() {
               value={mobileNo}
               onChange={handleMobileNumberChange}
             />
+            <span className="text-red-700 font-bold text-xl mr-2">*</span>
           </div>
 
           {validationErrors.mobileNo && (
@@ -387,6 +399,7 @@ function Home() {
               placeholder="Enter your facebook profile link"
               onChange={(event) => setFbProfileLink(event.target.value)}
             />
+            <span className="text-red-700 font-bold text-xl mr-2">*</span>
           </div>
 
           {validationErrors.fbProfileLink && (
