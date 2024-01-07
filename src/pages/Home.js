@@ -408,7 +408,7 @@ function Home() {
             ECO PARK REELO
           </h2>
           <h1 className="text-left text-gradient-primary text-xl font-pacifico lg:w-3/5 lg:h-16 flex m-auto pl-3 lg:pl-0">
-            Get featured on Eco Park Facebook and win free tickets just by
+            Get featured on Eco Park Facebook page and win free tickets just by
             uploading your reels or pics of Eco Park.
           </h1>
           <div className="flex m-auto justify-center">
