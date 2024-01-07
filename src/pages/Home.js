@@ -204,8 +204,9 @@ function Home() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fbProfileLink, setFbProfileLink] = useState("");
   const [mobileNo, setMobileNo] = useState("");
+  const [fullName, setFullName] = useState("");
   const [isValidMobile, setValidMobile] = useState(true);
-
+  const [uploading, setUploading] = useState(false);
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -263,16 +264,17 @@ function Home() {
   const [showCustomAlert3, setShowCustomAlert3] = useState(false);
 
   const handleSubmit = async () => {
+    setUploading(true);
     // Client-side validation
     let errors = {};
     if (!selectedFile) {
       errors.selectedFile = "*Please upload a reel or photo";
     }
-    if (!fbProfileLink) {
+    if (!mobileNo) {
       errors.mobileNo = "*Mobile number is required";
     }
-    if (!fbProfileLink) {
-      errors.fbProfileLink = "*Facebook profile link is required";
+    if (!fullName) {
+      errors.fullName = "*Full Name is required";
     }
     if (!agreeTerms) {
       errors.agreeTerms = "*Please agree to the terms and conditions";
@@ -287,6 +289,7 @@ function Home() {
         formData.append("file", selectedFile); // Assuming you have a 'file' key on the server
 
         // Append other form data to the FormData object
+        formData.append("fullName", fullName);
         formData.append("mobileNo", mobileNo);
         formData.append("fbProfileLink", fbProfileLink);
         formData.append("instagramProfileLink", instagramProfileLink);
@@ -309,6 +312,7 @@ function Home() {
           // Reset form fields
           setSelectedFile(null);
           setFbProfileLink("");
+          setFullName("");
           setMobileNo("");
           setInstagramProfileLink("");
           setAgreeTerms(false);
@@ -321,7 +325,13 @@ function Home() {
         }
       } catch (error) {
         console.error("Error during form submission:", error);
+      } finally {
+        // Set the uploading status back to false, regardless of success or failure
+        setUploading(false);
       }
+    } else {
+      // Set the uploading status back to false if there are validation errors
+      setUploading(false);
     }
   };
 
@@ -419,6 +429,13 @@ function Home() {
               <span className="text-red-700 text-xl ml-1">*</span>
             </label>
           </div>
+          {uploading && (
+            <div className="fixed inset-0 flex items-center justify-center">
+              <div className="bg-white p-6 rounded-lg mx-2 lg:w-1/3">
+                <p className="text-black text-center text-xl">Uploading...</p>
+              </div>
+            </div>
+          )}
           {validationErrors.selectedFile && (
             <p className="-mt-5 text-red-500 text-center">
               {validationErrors.selectedFile}
@@ -427,6 +444,21 @@ function Home() {
           {selectedFile && (
             <p className="text-center text-white mt-3">
               Selected file: {selectedFile.name}
+            </p>
+          )}
+
+          <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
+            <input
+              className="bg-gradient-primary p-3 outline-0 text-white placeholder:text-white w-full rounded-r-sm m-auto"
+              type="text"
+              placeholder="Enter your full name"
+              onChange={(event) => setFullName(event.target.value)}
+            />
+            <span className="text-red-700 font-bold text-xl mr-2">*</span>
+          </div>
+          {validationErrors.fullName && (
+            <p className="-mt-5 text-red-500 text-center">
+              {validationErrors.fullName}
             </p>
           )}
 
@@ -457,6 +489,7 @@ function Home() {
               Invalid mobile number. First digit must be 6, 7, 8, or 9.
             </p>
           )}
+          <p className="text-white text-center">Optional:</p>
 
           <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
             <FaFacebookSquare
@@ -470,14 +503,14 @@ function Home() {
               placeholder="Enter your facebook profile link"
               onChange={(event) => setFbProfileLink(event.target.value)}
             />
-            <span className="text-red-700 font-bold text-xl mr-2">*</span>
           </div>
 
-          {validationErrors.fbProfileLink && (
-            <p className="-mt-5 text-red-500 text-center">
-              {validationErrors.fbProfileLink}
-            </p>
-          )}
+          <h2 className="text-white text-lg px-3 btn-bg rounded-md py-3">
+            <span className="font-bold text-black">INTERESTING NOTE: </span>When
+            sharing your content on Facebook, include "@followers" in the
+            caption <br></br> to notify all your friends about the upload in
+            order to get more reach.
+          </h2>
 
           <div className="grid justify-center items-center gap-2 mb-4">
             <h2
@@ -495,7 +528,6 @@ function Home() {
             </button>
           </div>
 
-          <p className="text-white text-center">Optional:</p>
           <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
             <TiSocialInstagram
               size={40}
