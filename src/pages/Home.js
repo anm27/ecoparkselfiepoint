@@ -381,7 +381,7 @@ function Home() {
 
       {/* The overlay and popup */}
       {isPopupOpen && (
-        <div className="overlay ">
+        <div className="overlay bg-black h-screen">
           <div className="btn-bg py-3">
             <span
               className="close-btn text-4xl cursor-pointer ml-5 text-black"
@@ -402,10 +402,10 @@ function Home() {
         </div>
       )}
 
-      <div className="bg-black pt-2 h-screen">
+      <div className="bg-black pt-2">
         <div className="grid justify-center gap-5 bg-black">
           <h2 className="text-center text-white lg:text-5xl text-xl font-pacifico">
-            ECO PARK
+            ECO PARK REELO
           </h2>
           <h1 className="text-left text-gradient-primary text-xl font-pacifico lg:w-3/5 lg:h-16 flex m-auto pl-3 lg:pl-0">
             Get featured on Eco Park Facebook and win free tickets just by
