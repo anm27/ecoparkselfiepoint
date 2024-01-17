@@ -402,8 +402,8 @@ function Home() {
         </div>
       )}
 
-      <div className="bg-slate-600 pt-2 h-screen">
-        <div className="grid justify-center gap-5 bg-slate-600">
+      <div className="pt-2 h-screen" style={{backgroundColor: "darkgreen"}}>
+        <div className="grid justify-center gap-5" style={{backgroundColor: "darkgreen"}}>
           <h2 className="text-center text-white lg:text-5xl text-xl font-pacifico uppercase">
             New Town Reels
           </h2>
@@ -591,7 +591,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex justify-center bg-slate-600 pb-20">
+          <div className="flex justify-center pb-20" style={{backgroundColor: "darkgreen"}}>
             <button
               onClick={handleSubmit}
               className="btn-bg text-center px-3 py-1 text-xl text-white font-bold uppercase rounded"
@@ -602,7 +602,7 @@ function Home() {
         </div>
       </div>
       <div
-        className={`flex flex-row items-center fixed justify-center w-full bottom-0 py-2 bg-slate-600`}
+        className={`flex flex-row items-center fixed justify-center w-full bottom-0 py-2`} style={{backgroundColor: "darkgreen"}}
       >
         <h2 className={`text-sm text-white`}>Powered by : </h2>
 
