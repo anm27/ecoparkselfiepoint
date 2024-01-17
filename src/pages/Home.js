@@ -402,7 +402,7 @@ function Home() {
         </div>
       )}
 
-      <div className="bg-slate-600 pt-2">
+      <div className="bg-slate-600 pt-2 h-screen">
         <div className="grid justify-center gap-5 bg-slate-600">
           <h2 className="text-center text-white lg:text-5xl text-xl font-pacifico uppercase">
             New Town Reels
