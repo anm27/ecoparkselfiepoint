@@ -447,7 +447,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
             <input
               className="bg-gradient-primary p-3 outline-0 text-white placeholder:text-white w-full rounded-r-sm m-auto"
               type="text"
@@ -462,7 +462,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
             <h2 className="px-2 pl-3 border-r-2 text-white text-lg font-semibold">
               +91
             </h2>
@@ -491,7 +491,7 @@ function Home() {
           )}
           <p className="text-white text-center">Optional:</p>
 
-          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
             <FaFacebookSquare
               size={40}
               color="white"
@@ -528,7 +528,7 @@ function Home() {
             </button>
           </div>
 
-          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
             <TiSocialInstagram
               size={40}
               color="white"
