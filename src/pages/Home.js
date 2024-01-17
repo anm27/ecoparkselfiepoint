@@ -370,7 +370,7 @@ function Home() {
     <>
       {showCustomAlert && (
         <CustomAlert
-          message="Expressing our gratitude! 🌟 If your captivating reel or stunning photo gets featured, you'll be rewarded with 5 complimentary tickets to Eco Park! 🎉 Embrace the good life and keep sharing those amazing moments!"
+          message="🌟 You video/still has been successfully uploaded. You will be notified by sms/ voice call if it is published in Eco Park face book page. Thanks for your response. 🎉"
           onClose={handleCloseCustomAlert}
         />
       )}
@@ -543,7 +543,7 @@ function Home() {
           </div>
 
           {/* Checkbox for agreeing to terms and conditions */}
-          <div className="flex justify-center items-center w-4/5 m-auto">
+          <div className="flex justify-center items-center w-full m-auto">
             <input
               type="checkbox"
               id="agreeTermsCheckbox"
