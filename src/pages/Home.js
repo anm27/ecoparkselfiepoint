@@ -10,7 +10,7 @@ const CustomAlert = ({ message, onClose }) => (
   <div className="fixed inset-0 flex items-center justify-center">
     <div className="btn-bg p-6 rounded-lg mx-2 lg:w-1/3">
       <button className="text-white flex ml-auto mb-2" onClick={onClose}>
-        <IoCloseSharp size={33} className="bg-black rounded-full p-1" />
+        <IoCloseSharp size={33} className="bg-slate-600 rounded-full p-1" />
       </button>
       <p className="text-white text-xl">{message}</p>
     </div>
@@ -21,7 +21,7 @@ const CustomAlert2 = ({ onClose }) => (
   <div className="fixed inset-0 flex items-center justify-center pb-10">
     <div className="btn-bg p-6 rounded-lg mx-2 lg:w-1/3 max-h-screen overflow-y-auto">
       <button className="text-white flex ml-auto my-2 mt-16" onClick={onClose}>
-        <IoCloseSharp size={33} className="bg-black rounded-full p-1" />
+        <IoCloseSharp size={33} className="bg-slate-600 rounded-full p-1" />
       </button>
       {/* <p className="text-white text-xl">{message}</p> */}
       <h2 className="text-white text-2xl font-bold font-dm-sans text-gradient-black">
@@ -118,7 +118,7 @@ const CustomAlert3 = ({ onClose }) => (
   <div className="fixed inset-0 flex items-center justify-center pb-10">
     <div className="btn-bg p-6 rounded-lg mx-2 lg:w-1/3 max-h-screen overflow-y-auto">
       <button className="text-white flex ml-auto mt-10 mb-2" onClick={onClose}>
-        <IoCloseSharp size={33} className="bg-black rounded-full p-1" />
+        <IoCloseSharp size={33} className="bg-slate-600 rounded-full p-1" />
       </button>
       {/* <p className="text-white text-xl">{message}</p> */}
       <h2 className="text-white text-2xl font-extrabold font-dm-sans text-gradient-black">
@@ -381,7 +381,7 @@ function Home() {
 
       {/* The overlay and popup */}
       {isPopupOpen && (
-        <div className="overlay bg-black h-screen">
+        <div className="overlay bg-slate-600 h-screen">
           <div className="btn-bg py-3">
             <span
               className="close-btn text-4xl cursor-pointer ml-5 text-black"
@@ -402,15 +402,15 @@ function Home() {
         </div>
       )}
 
-      <div className="bg-black pt-2">
-        <div className="grid justify-center gap-5 bg-black">
-          <h2 className="text-center text-white lg:text-5xl text-xl font-pacifico">
-            ECO PARK REELO
+      <div className="bg-slate-600 pt-2">
+        <div className="grid justify-center gap-5 bg-slate-600">
+          <h2 className="text-center text-white lg:text-5xl text-xl font-pacifico uppercase">
+            New Town Reels
           </h2>
-          <h1 className="text-left text-gradient-primary text-xl font-pacifico lg:w-3/5 lg:h-16 flex m-auto pl-3 lg:pl-0">
+          {/* <h1 className="text-left text-gradient-primary text-xl font-pacifico lg:w-3/5 lg:h-16 flex m-auto pl-3 lg:pl-0">
             Get featured on Eco Park Facebook page and win free tickets just by
             uploading your reels or pics of Eco Park.
-          </h1>
+          </h1> */}
           <div className="flex m-auto justify-center">
             <label
               htmlFor="fileInput"
@@ -419,7 +419,7 @@ function Home() {
               <div className="bg-cyan-500 py-4 pl-4 rounded-l border-r-2 mr-2">
                 <FaCloudUploadAlt className="mr-4" size={32} />
               </div>
-              Upload reels or photos{" "}
+              Upload reels/video here...
               <input
                 id="fileInput"
                 className="hidden"
@@ -447,7 +447,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
             <input
               className="bg-gradient-primary p-3 outline-0 text-white placeholder:text-white w-full rounded-r-sm m-auto"
               type="text"
@@ -462,7 +462,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
             <h2 className="px-2 pl-3 border-r-2 text-white text-lg font-semibold">
               +91
             </h2>
@@ -491,7 +491,7 @@ function Home() {
           )}
           <p className="text-white text-center">Optional:</p>
 
-          <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
             <FaFacebookSquare
               size={40}
               color="white"
@@ -505,12 +505,12 @@ function Home() {
             />
           </div>
 
-          <h2 className="text-white text-lg px-3 btn-bg rounded-md py-3">
+          {/* <h2 className="text-white text-lg px-3 btn-bg rounded-md py-3">
             <span className="font-bold text-black">INTERESTING NOTE: </span>When
             sharing your content on Facebook, include "@followers" in the
             caption <br></br> to notify all your friends about the upload in
             order to get more reach.
-          </h2>
+          </h2> */}
 
           <div className="grid justify-center items-center gap-2 mb-4">
             <h2
@@ -528,7 +528,7 @@ function Home() {
             </button>
           </div>
 
-          <div className="flex items-center lg:w-1/2 w-4/5 m-auto bg-gradient-primary rounded-sm">
+          <div className="flex items-center w-4/5 m-auto bg-gradient-primary rounded-sm">
             <TiSocialInstagram
               size={40}
               color="white"
@@ -591,7 +591,7 @@ function Home() {
             </p>
           )}
 
-          <div className="flex justify-center bg-black pb-20">
+          <div className="flex justify-center bg-slate-600 pb-20">
             <button
               onClick={handleSubmit}
               className="btn-bg text-center px-3 py-1 text-xl text-white font-bold uppercase rounded"
@@ -602,7 +602,7 @@ function Home() {
         </div>
       </div>
       <div
-        className={`flex flex-row items-center fixed justify-center w-full bottom-0 py-2 bg-black`}
+        className={`flex flex-row items-center fixed justify-center w-full bottom-0 py-2 bg-slate-600`}
       >
         <h2 className={`text-sm text-white`}>Powered by : </h2>
 
