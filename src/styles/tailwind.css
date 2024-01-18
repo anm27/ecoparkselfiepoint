@@ -26,6 +26,12 @@
   color: transparent;
 }
 
+.long-filename {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .text-primary-color {
   color: #00d2e8; /* Replace with your custom color code */
 }

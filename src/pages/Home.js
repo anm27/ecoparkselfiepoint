@@ -442,7 +442,7 @@ function Home() {
             </p>
           )}
           {selectedFile && (
-            <p className="text-center text-white mt-3">
+            <p className="text-center text-white mt-3 mx-3 long-filename">
               Selected file: {selectedFile.name}
             </p>
           )}
