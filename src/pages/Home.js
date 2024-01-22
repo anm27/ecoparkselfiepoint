@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
-import { TiSocialInstagram } from "react-icons/ti";
+// import { FaFacebookSquare } from "react-icons/fa";
+// import { TiSocialInstagram } from "react-icons/ti";
 import hidcoLogo from "../images/hidco-logo.png";
 import { IoCloseSharp } from "react-icons/io5";
 import tutorial from "../video/fb_get_profile_link.mp4";
@@ -209,9 +209,9 @@ function Home() {
   const [uploading, setUploading] = useState(false);
   const [isPopupOpen, setPopupOpen] = useState(false);
 
-  const openPopup = () => {
-    setPopupOpen(true);
-  };
+  // const openPopup = () => {
+  //   setPopupOpen(true);
+  // };
 
   const closePopup = () => {
     setPopupOpen(false);
@@ -489,9 +489,9 @@ function Home() {
               Invalid mobile number. First digit must be 6, 7, 8, or 9.
             </p>
           )}
-          <p className="text-white text-center">Optional:</p>
+          {/* <p className="text-white text-center">Optional:</p> */}
 
-          <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
+          {/* <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
             <FaFacebookSquare
               size={40}
               color="white"
@@ -503,7 +503,7 @@ function Home() {
               placeholder="Enter your facebook profile link"
               onChange={(event) => setFbProfileLink(event.target.value)}
             />
-          </div>
+          </div> */}
 
           {/* <h2 className="text-white text-lg px-3 btn-bg rounded-md py-3">
             <span className="font-bold text-black">INTERESTING NOTE: </span>When
@@ -512,7 +512,7 @@ function Home() {
             order to get more reach.
           </h2> */}
 
-          <div className="grid justify-center items-center gap-2 mb-4">
+          {/* <div className="grid justify-center items-center gap-2 mb-4">
             <h2
               className="text-white text-sm text-center cursor-pointer underline hover:text-cyan-700"
               onClick={() => setShowCustomAlert3(true)}
@@ -526,9 +526,9 @@ function Home() {
             >
               Watch Tutorial
             </button>
-          </div>
+          </div> */}
 
-          <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
+          {/* <div className="flex items-center w-full m-auto bg-gradient-primary rounded-sm">
             <TiSocialInstagram
               size={40}
               color="white"
@@ -540,7 +540,7 @@ function Home() {
               placeholder="Enter your instagram profile link"
               onChange={(event) => setInstagramProfileLink(event.target.value)}
             />
-          </div>
+          </div> */}
 
           {/* Checkbox for agreeing to terms and conditions */}
           <div className="flex justify-center items-center w-full m-auto">
