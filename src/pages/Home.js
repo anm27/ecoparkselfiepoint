@@ -340,9 +340,9 @@ function Home() {
     setSelectedFile(file);
   };
 
-  const handleCheckboxChange = () => {
-    setAgreeTerms(!agreeTerms);
-  };
+  // const handleCheckboxChange = () => {
+  //   setAgreeTerms(!agreeTerms);
+  // };
 
   const handleCloseCustomAlert = () => {
     setShowCustomAlert(false);
@@ -543,53 +543,7 @@ function Home() {
           </div> */}
 
           {/* Checkbox for agreeing to terms and conditions */}
-          <div className="flex justify-center items-center w-full m-auto">
-            <input
-              type="checkbox"
-              id="agreeTermsCheckbox"
-              checked={agreeTerms}
-              onChange={handleCheckboxChange}
-              className="hidden"
-            />
-            <label
-              htmlFor="agreeTermsCheckbox"
-              className="flex items-center cursor-pointer text-white"
-            >
-              <div
-                className={`w-6 h-6 border-2 rounded ${
-                  agreeTerms
-                    ? "bg-green-700 border-green-700"
-                    : "border-gray-400"
-                }`}
-              >
-                {agreeTerms && (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-full h-full"
-                  >
-                    <path d="M20 6L9 17l-5-5"></path>
-                  </svg>
-                )}
-              </div>
-              <span className="ml-2">I agree to the terms and conditions</span>
-            </label>
-          </div>
-          <p
-            className="text-white text-sm text-center cursor-pointer mb-4"
-            onClick={() => setShowCustomAlert2(true)}
-          >
-            Read terms & conditions
-          </p>
-          {validationErrors.agreeTerms && (
-            <p className="-mt-5 text-red-500 text-center">
-              {validationErrors.agreeTerms}
-            </p>
-          )}
+          
 
           <div className="flex justify-center pb-20" style={{backgroundColor: "darkgreen"}}>
             <button
