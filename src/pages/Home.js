@@ -276,9 +276,6 @@ function Home() {
     if (!fullName) {
       errors.fullName = "*Full Name is required";
     }
-    if (!agreeTerms) {
-      errors.agreeTerms = "*Please agree to the terms and conditions";
-    }
     setValidationErrors(errors);
 
     // If no errors, proceed with submission
@@ -293,6 +290,7 @@ function Home() {
         formData.append("mobileNo", mobileNo);
         formData.append("fbProfileLink", fbProfileLink);
         formData.append("instagramProfileLink", instagramProfileLink);
+        formData.append("agreeTerms", agreeTerms);
 
         // Make a POST request to the server
         const response = await fetch(
@@ -302,6 +300,7 @@ function Home() {
             body: formData,
           }
         );
+        // console.log("Response: ", response);
 
         if (response.ok) {
           setShowCustomAlert(true);
